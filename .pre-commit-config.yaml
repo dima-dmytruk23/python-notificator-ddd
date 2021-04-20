@@ -1,0 +1,40 @@
+repos:
+- repo: https://github.com/ambv/black
+  rev: stable
+  hooks:
+  - id: black
+    language_version: python3.8
+    entry: black .
+    exclude: migrations
+    args: [--check, --diff]
+- repo: https://gitlab.com/pycqa/flake8
+  rev: 3.9.1
+  hooks:
+  - id: flake8
+#-   repo: https://github.com/asottile/seed-isort-config
+#    rev: v2.2.0
+#    hooks:
+#    -   id: seed-isort-config
+- repo: https://github.com/timothycrosley/isort
+  rev: 5.8.0
+  hooks:
+  - id: isort
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v3.4.0
+  hooks:
+    - id: check-ast
+    - id: check-case-conflict
+    - id: check-docstring-first
+    - id: check-json
+    - id: check-xml
+    - id: check-yaml
+    - id: detect-private-key
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+    - id: check-executables-have-shebangs
+    - id: debug-statements
+    - id: check-merge-conflict
+- repo: https://github.com/pre-commit/mirrors-autopep8
+  rev: 'c65fbb8e4e3888ac255efa4db1bf8c3f8f5b6a4a'
+  hooks:
+  - id: autopep8
